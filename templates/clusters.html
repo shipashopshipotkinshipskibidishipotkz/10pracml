@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h4>Интерактивные кластеры</h4>
+<div class="mb-4">
+    {{ graph_html | safe }}
+</div>
+
+<h4>Статистика кластеров</h4>
+<div class="table-responsive">
+    {{ tables[0]|safe }}
+</div>
+
+{% endblock %}

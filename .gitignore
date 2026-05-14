@@ -1,0 +1,14 @@
+models.pkl
+*.pkl
+*.db
+*.log
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.env
+*.env
+catboost_info/

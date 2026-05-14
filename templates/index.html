@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <div class="border p-3 mb-3">
+            <h4>Форма ввода отзыва</h4>
+            <p>ID пользователя: {{ session['user_id'] }}</p>
+            {% if prediction %}
+                <div class="alert alert-info">
+                    Результат: {{ prediction }}
+                </div>
+            {% endif %}
+            <form method="POST">
+                <div class="mb-3">
+                    <label>Банк:</label>
+                    <select name="bank" class="form-select">
+                        {% for b in banks %}<option value="{{ b }}">{{ b }}</option>{% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label>Оценка (1-5):</label>
+                    <input type="number" name="rating" min="1" max="5" value="5" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>Текст отзыва:</label>
+                    <textarea name="review" rows="4" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить на анализ</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="border p-3">
+            <h4>Рекомендации для вас</h4>
+            <ul>
+                {% for rec in recs %}
+                    <li>{{ rec }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

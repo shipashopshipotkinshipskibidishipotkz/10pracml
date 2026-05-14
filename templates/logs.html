@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>Журнал запросов</h4>
+<div class="bg-light border p-2" style="height: 400px; overflow-y: scroll;">
+    <pre>{% for line in logs %}{{ line }}{% endfor %}</pre>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>Сравнение моделей</h4>
+<div class="alert alert-success mt-3 mb-3">
+    <strong>Вывод:</strong> На основе перебора гиперпараметров и сравнения метрик, лучшей моделью оказалась <b>{{
+        best_model_name }}</b> (по F1-score). Именно она сохранена и используется для предсказаний на главной странице.
+</div>
+
+{{ tables[0]|safe }}
+
+<hr>
+<h4>ROC-кривые</h4>
+<img src="{{ url_for('static', filename='roc_curves.png') }}" class="img-fluid border">
+{% endblock %}
